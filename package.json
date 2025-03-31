@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build:css": "tailwindcss -i ./src/style.css -o ./src/output.css --watch",
+    "build": "npm run build:css",
     "cypress:run": "npm run build:css && cypress run",
     "cypress:open": "npm run build:css && cypress open"
   }
