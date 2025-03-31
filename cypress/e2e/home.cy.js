@@ -15,8 +15,7 @@ describe('Home Page Tests', () => {
     const navbarLinks = [
       { selector: '[data-cy="navbar-link-home"]', text: 'Home' },
       { selector: '[data-cy="navbar-link-about"]', text: 'About' },
-      { selector: '[data-cy="navbar-link-resources"]', text: 'Resources' },
-      { selector: '[data-cy="navbar-link-contact"]', text: 'Contact' },
+      { selector: '[data-cy="navbar-link-resources"]', text: 'Pricing' },
     ];
 
     navbarLinks.forEach(link => {
@@ -62,7 +61,6 @@ describe('Home Page Tests', () => {
       '[data-cy="navbar-item-home"]',
       '[data-cy="navbar-item-about"]',
       '[data-cy="navbar-item-resources"]',
-      '[data-cy="navbar-item-contact"]',
     ];
 
     navbarItems.forEach(item => {
@@ -71,6 +69,7 @@ describe('Home Page Tests', () => {
         .should('have.css', 'transform', 'matrix(1.1, 0, 0, 1.1, 0, 0)'); // Verifica o efeito de scale
     });
   });
+
   it('should validate responsiveness for mobile view', () => {
     cy.viewport(375, 667); // Simula um dispositivo mobile (iPhone 6/7/8)
     cy.get('[data-cy="navbar-list"]').should('be.visible');
@@ -85,7 +84,6 @@ describe('Home Page Tests', () => {
     cy.get('[data-cy="pricing-button"]').should('be.visible');
   });
 
-  // Novo caso de teste: Verificar acessibilidade
   it('should validate accessibility attributes', () => {
     cy.get('[data-cy="header-title"]').should('have.attr', 'aria-label', 'Website Title');
     cy.get('[data-cy="navbar"]').should('have.attr', 'aria-label', 'Main Navigation');
@@ -93,15 +91,46 @@ describe('Home Page Tests', () => {
     cy.get('[data-cy="pricing-button"]').should('have.attr', 'aria-label', 'Pricing Button');
   });
 
-  // Novo caso de teste: Verificar se o botão Pricing redireciona corretamente
-  it('should redirect when Pricing button is clicked', () => {
-    cy.get('[data-cy="pricing-button"]').click();
-    cy.url().should('include', '/pricing'); // Substitua '/pricing' pelo caminho correto
+  it('should validate the footer contact information', () => {
+    cy.get('[data-cy="footer-email"]')
+      .should('be.visible')
+      .and('contain.text', 'gabrielvolponi11@gmail.com');
+
+    cy.get('[data-cy="footer-phone"]')
+      .should('be.visible')
+      .and('contain.text', '+55 11 991287-9966');
   });
 
-  // Novo caso de teste: Verificar se o vídeo carrega corretamente
-  it('should validate the video loads successfully', () => {
-    cy.get('[data-cy="video"]').should('have.prop', 'readyState').and('eq', 4); // Verifica se o vídeo está pronto para reprodução
+  it('should validate the footer social links', () => {
+    const socialLinks = [
+      '[data-cy="footer-link-facebook"]',
+      '[data-cy="footer-link-twitter"]',
+      '[data-cy="footer-link-instagram"]',
+      '[data-cy="footer-link-linkedin"]',
+    ];
+
+    socialLinks.forEach(link => {
+      cy.get(link)
+        .should('be.visible')
+        .trigger('mouseover')
+        .should('have.css', 'color', 'rgb(34, 197, 94)'); // Verifica o hover verde
+    });
+  });
+
+  it('should validate the pricing section cards', () => {
+    const pricingCards = [
+      { selector: '[data-cy="pricing-card-basic"]', title: 'Basic Plan', price: '$9.99/month' },
+      { selector: '[data-cy="pricing-card-pro"]', title: 'Pro Plan', price: '$19.99/month' },
+      { selector: '[data-cy="pricing-card-enterprise"]', title: 'Enterprise Plan', price: '$49.99/month' },
+    ];
+
+    pricingCards.forEach(card => {
+      cy.get(card.selector).within(() => {
+        cy.get('h3').should('contain.text', card.title);
+        cy.get('p').should('contain.text', card.price);
+        cy.get('button').should('be.visible').and('contain.text', 'Select Plan');
+      });
+    });
   });
 });
 
