@@ -7,7 +7,7 @@
     "cypress": "^14.2.1"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./src/style.css -o ./src/output.css --watch",
+    "build:css": "tailwindcss -i ./src/style.css -o ./public/output.css --minify",
     "build": "npm run build:css",
     "cypress:run": "npm run build:css && cypress run",
     "cypress:open": "npm run build:css && cypress open"
