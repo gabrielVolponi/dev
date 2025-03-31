@@ -7,7 +7,8 @@
     "cypress": "^14.2.1"
   },
   "scripts": {
-    "cypress:run": "npx cypress run", 
-    "cypress:open": "npx cypress open"
+    "build:css": "tailwindcss -i ./src/style.css -o ./src/output.css --watch",
+    "cypress:run": "npm run build:css && cypress run",
+    "cypress:open": "npm run build:css && cypress open"
   }
 }
