@@ -104,6 +104,68 @@
                 </div>
             </div>
         </section>
+
+        <!-- Pricing Section -->
+        <section class="bg-black py-12" data-cy="pricing-section">
+            <div class="container mx-auto px-6 md:px-10 lg:px-20">
+                <h2 class="text-green-500 text-3xl font-poppins font-extrabold text-center mb-8 md:text-4xl lg:text-5xl" 
+                    data-cy="pricing-heading" aria-label="Pricing Section Heading">
+                    Pricing Plans
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Basic Plan -->
+                    <div class="bg-gray-800 rounded-lg p-6 hover:bg-green-500 transition duration-300 group" data-cy="pricing-card-basic">
+                        <h3 class="text-white text-xl font-bold mb-4 text-center group-hover:text-white" data-cy="pricing-card-title-basic" aria-label="Basic Plan Title">
+                            Basic Plan
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 text-center group-hover:text-white" data-cy="pricing-card-text-basic" aria-label="Basic Plan Description">
+                            Perfect for individuals starting out. Includes basic undo features and support.
+                        </p>
+                        <p class="text-green-500 text-2xl font-bold text-center mb-4 group-hover:text-white" data-cy="pricing-card-price-basic" aria-label="Basic Plan Price">
+                            $9.99/month
+                        </p>
+                        <button class="w-full bg-green-500 text-white font-bold py-2 rounded-lg hover:bg-white hover:text-green-500 transition duration-300" 
+                                data-cy="pricing-card-button-basic" aria-label="Select Basic Plan">
+                            Select Plan
+                        </button>
+                    </div>
+
+                    <!-- Pro Plan (Highlighted) -->
+                    <div class="bg-green-500 rounded-lg p-6 shadow-lg transform scale-105 transition duration-300" data-cy="pricing-card-pro">
+                        <h3 class="text-white text-xl font-bold mb-4 text-center" data-cy="pricing-card-title-pro" aria-label="Pro Plan Title">
+                            Pro Plan
+                        </h3>
+                        <p class="text-gray-100 text-sm mb-4 text-center" data-cy="pricing-card-text-pro" aria-label="Pro Plan Description">
+                            Ideal for professionals. Includes advanced undo features, priority support, and more.
+                        </p>
+                        <p class="text-white text-2xl font-bold text-center mb-4" data-cy="pricing-card-price-pro" aria-label="Pro Plan Price">
+                            $19.99/month
+                        </p>
+                        <button class="w-full bg-white text-green-500 font-bold py-2 rounded-lg hover:bg-gray-100 transition duration-300" 
+                                data-cy="pricing-card-button-pro" aria-label="Select Pro Plan">
+                            Select Plan
+                        </button>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="bg-gray-800 rounded-lg p-6 hover:bg-green-500 transition duration-300 group" data-cy="pricing-card-enterprise">
+                        <h3 class="text-white text-xl font-bold mb-4 text-center group-hover:text-white" data-cy="pricing-card-title-enterprise" aria-label="Enterprise Plan Title">
+                            Enterprise Plan
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 text-center group-hover:text-white" data-cy="pricing-card-text-enterprise" aria-label="Enterprise Plan Description">
+                            Best for teams and organizations. Includes all features, dedicated support, and custom solutions.
+                        </p>
+                        <p class="text-green-500 text-2xl font-bold text-center mb-4 group-hover:text-white" data-cy="pricing-card-price-enterprise" aria-label="Enterprise Plan Price">
+                            $49.99/month
+                        </p>
+                        <button class="w-full bg-green-500 text-white font-bold py-2 rounded-lg hover:bg-white hover:text-green-500 transition duration-300" 
+                                data-cy="pricing-card-button-enterprise" aria-label="Select Enterprise Plan">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 
