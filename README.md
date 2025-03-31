@@ -45,7 +45,7 @@ npm run cypress:run
 
 ## 🔄 CI/CD
 Este projeto utiliza **GitHub Actions** para automação de testes e deploy contínuo. A cada push, os testes são executados automaticamente. O pipeline inclui:
-- Execução dos testes Cypress no modo headless.
+- Execução dos testes Cypress no modo headless...
 - Verificação de acessibilidade e responsividade.
 
 ## 🌍 Acessibilidade
