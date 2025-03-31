@@ -2,5 +2,8 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.17",
     "tailwindcss": "^4.0.17"
+  },
+  "devDependencies": {
+    "cypress": "^14.2.1"
   }
 }
