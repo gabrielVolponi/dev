@@ -104,3 +104,136 @@ describe('Home Page Tests', () => {
     cy.get('[data-cy="video"]').should('have.prop', 'readyState').and('eq', 4); // Verifica se o vídeo está pronto para reprodução
   });
 });
+
+// Testes para a seção Pricing
+describe('Pricing Section Tests', () => {
+  it('should display the pricing section heading', () => {
+    cy.get('[data-cy="pricing-heading"]')
+      .should('be.visible')
+      .and('contain.text', 'Pricing Plans');
+  });
+
+  it('should render all pricing cards with correct content', () => {
+    const pricingCards = [
+      { selector: '[data-cy="pricing-card-basic"]', title: 'Basic Plan', price: '$9.99/month' },
+      { selector: '[data-cy="pricing-card-pro"]', title: 'Pro Plan', price: '$19.99/month' },
+      { selector: '[data-cy="pricing-card-enterprise"]', title: 'Enterprise Plan', price: '$49.99/month' },
+    ];
+
+    pricingCards.forEach(card => {
+      cy.get(card.selector).within(() => {
+        cy.get('h3').should('contain.text', card.title);
+        cy.get('p').should('contain.text', card.price);
+        cy.get('button').should('be.visible').and('contain.text', 'Select Plan');
+      });
+    });
+  });
+
+  it('should apply hover effects on pricing cards', () => {
+    const pricingCards = [
+      '[data-cy="pricing-card-basic"]',
+      '[data-cy="pricing-card-enterprise"]',
+    ];
+
+    pricingCards.forEach(card => {
+      cy.get(card).trigger('mouseover');
+      cy.get(card).should('have.css', 'background-color', 'rgb(34, 197, 94)'); // Verifica o hover verde
+    });
+  });
+
+  it('should highlight the Pro Plan card', () => {
+    cy.get('[data-cy="pricing-card-pro"]')
+      .should('have.css', 'transform', 'matrix(1.05, 0, 0, 1.05, 0, 0)') // Verifica o destaque com scale
+      .and('have.css', 'background-color', 'rgb(34, 197, 94)'); // Verifica o fundo verde
+  });
+});
+
+// Testes para o Footer
+describe('Footer Tests', () => {
+  it('should display social links with hover effects', () => {
+    const socialLinks = [
+      '[data-cy="footer-link-facebook"]',
+      '[data-cy="footer-link-twitter"]',
+      '[data-cy="footer-link-instagram"]',
+      '[data-cy="footer-link-linkedin"]',
+    ];
+
+    socialLinks.forEach(link => {
+      cy.get(link)
+        .should('be.visible')
+        .trigger('mouseover')
+        .should('have.css', 'color', 'rgb(34, 197, 94)'); // Verifica o hover verde
+    });
+  });
+
+  it('should display contact information', () => {
+    cy.get('[data-cy="footer-email"]')
+      .should('be.visible')
+      .and('contain.text', 'gabrielvolponi11@gmail.com');
+
+    cy.get('[data-cy="footer-phone"]')
+      .should('be.visible')
+      .and('contain.text', '+55 11 991287-9966');
+  });
+
+  it('should display the copyright text', () => {
+    cy.get('[data-cy="footer-copyright"]')
+      .should('be.visible')
+      .and('contain.text', '© 2025 Undone. All rights reserved.');
+  });
+});
+
+// Testes para Responsividade em Mobile
+describe('Mobile View Tests', () => {
+  beforeEach(() => {
+    cy.viewport(375, 667); // Simula um dispositivo mobile (iPhone 6/7/8)
+    cy.visit('http://127.0.0.1:5500/home.html'); // Substitua pelo URL do seu projeto
+  });
+
+  it('should display the navbar correctly in mobile view', () => {
+    cy.get('[data-cy="navbar-list"]').should('be.visible');
+    cy.get('[data-cy="navbar-link-home"]').should('contain.text', 'Home');
+    cy.get('[data-cy="navbar-link-about"]').should('contain.text', 'About');
+    cy.get('[data-cy="navbar-link-resources"]').should('contain.text', 'Resources');
+    cy.get('[data-cy="navbar-link-contact"]').should('contain.text', 'Contact');
+  });
+
+  it('should display the main heading and subheading in mobile view', () => {
+    cy.get('[data-cy="main-heading"]')
+      .should('be.visible')
+      .and('contain.text', "Undone What you've done.");
+    cy.get('[data-cy="sub-heading"]')
+      .should('be.visible')
+      .and('contain.text', 'Undone Your Bulls#*$!');
+  });
+
+  it('should display the pricing section correctly in mobile view', () => {
+    cy.get('[data-cy="pricing-heading"]')
+      .should('be.visible')
+      .and('contain.text', 'Pricing Plans');
+
+    cy.get('[data-cy="pricing-card-basic"]').should('be.visible');
+    cy.get('[data-cy="pricing-card-pro"]').should('be.visible');
+    cy.get('[data-cy="pricing-card-enterprise"]').should('be.visible');
+  });
+
+  it('should display the footer correctly in mobile view', () => {
+    cy.get('[data-cy="footer-email"]')
+      .should('be.visible')
+      .and('contain.text', 'gabrielvolponi11@gmail.com');
+    cy.get('[data-cy="footer-phone"]')
+      .should('be.visible')
+      .and('contain.text', '+55 11 991287-9966');
+    cy.get('[data-cy="footer-link-facebook"]').should('be.visible');
+    cy.get('[data-cy="footer-link-twitter"]').should('be.visible');
+    cy.get('[data-cy="footer-link-instagram"]').should('be.visible');
+    cy.get('[data-cy="footer-link-linkedin"]').should('be.visible');
+  });
+
+  it('should ensure all elements are stacked vertically in mobile view', () => {
+    cy.get('[data-cy="main-section"]').should('have.css', 'flex-direction', 'column');
+    cy.get('[data-cy="about-section"]').should('be.visible');
+    cy.get('[data-cy="pricing-section"]').should('be.visible');
+    cy.get('[data-cy="footer"]').should('be.visible');
+  });
+});
