@@ -3,13 +3,12 @@
 ![Badge](https://img.shields.io/badge/status-Em%20Desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-Projeto desenvolvido com **HTML, CSS e JavaScript**, utilizando **Tailwind CSS** para estilização. Conta com **testes automatizados em Cypress**, testes unitários e **integração contínua (CI/CD)** para garantir qualidade e entrega contínua.
+Projeto desenvolvido com **HTML, CSS e JavaScript**, utilizando **Tailwind CSS** para estilização. Conta com **testes automatizados em Cypress** e **integração contínua (CI/CD)** para garantir qualidade e entrega contínua.
 
 ## 🚀 Tecnologias Utilizadas
 - **HTML, CSS e JavaScript**
 - **Tailwind CSS** (Estilização)
 - **Cypress** (Testes end-to-end)
-- **Testes Unitários**
 - **CI/CD** (Integração e Entrega Contínua)
 - **Metodologia Mobile-First** 📱
 - **Acessibilidade** ♿
@@ -33,23 +32,21 @@ Projeto desenvolvido com **HTML, CSS e JavaScript**, utilizando **Tailwind CSS**
    ```
 
 ## 🧪 Testes
-### Rodar Testes de Unidade:
-```sh
-npm run test
-```
-
 ### Rodar Testes End-to-End com Cypress:
+Para abrir a interface gráfica do Cypress:
 ```sh
-npx cypress open
+npm run cypress:open
 ```
 
-Para rodar em modo headless:
+Para rodar os testes no modo headless:
 ```sh
-npx cypress run
+npm run cypress:run
 ```
 
 ## 🔄 CI/CD
-Este projeto utiliza **GitHub Actions** para automação de testes e deploy contínuo. A cada push, os testes são executados automaticamente.
+Este projeto utiliza **GitHub Actions** para automação de testes e deploy contínuo. A cada push, os testes são executados automaticamente. O pipeline inclui:
+- Execução dos testes Cypress no modo headless.
+- Verificação de acessibilidade e responsividade.
 
 ## 🌍 Acessibilidade
 Implementamos boas práticas de acessibilidade para garantir uma experiência inclusiva, utilizando:
