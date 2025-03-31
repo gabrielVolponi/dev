@@ -1,0 +1,38 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main # Executa os testes ao fazer push na branch main
+  pull_request:
+    branches:
+      - main # Executa os testes em pull requests para a branch main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configuração do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Use a versão do Node.js compatível com seu projeto
+
+      # Instalação das dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Inicia o servidor da aplicação
+      - name: Start application
+        run: |
+          npm start &
+          npx wait-on http://localhost:3000 # Substitua pela URL do seu servidor local
+
+      # Executa os testes Cypress
+      - name: Run Cypress tests
+        run: npx cypress run
