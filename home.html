@@ -1,65 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cy="html-root">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopify</title>
-    <link rel="stylesheet" href="src/output.css">
-    <link rel="stylesheet" href="src/style.css">
+    <meta charset="UTF-8" data-cy="meta-charset">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-cy="meta-viewport">
+    <title data-cy="page-title">Shopify</title>
+    <link rel="stylesheet" href="src/output.css" data-cy="stylesheet-output">
+    <link rel="stylesheet" href="src/style.css" data-cy="stylesheet-style">
 </head>
 
-<body class="bg-black scroll-smooth">
-    <header class="flex flex-col items-center h-1/2 m-2.5">
-        <span class="transform mb-2 mt-1.5 font-bold flex text-3xl text-green-500 justify-center font-poppins md:text-4xl lg:text-5xl ">
+<body class="bg-black scroll-smooth" data-cy="body">
+    <header class="flex flex-col items-center h-1/2 m-2.5" data-cy="header">
+        <span class="transform mb-2 mt-1.5 font-bold flex text-3xl text-green-500 justify-center font-poppins md:text-4xl lg:text-5xl" 
+              data-cy="header-title" aria-label="Website Title">
             Undone
         </span>
-        <nav class="-mt-0.5">
-            <ul class="flex gap-2 justify-center font-poppins text-lg md:text-xl lg:text-2xl">
-                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300">
-                    <a href="#" title="Link Home">Home</a>
+        <nav class="-mt-0.5" data-cy="navbar" aria-label="Main Navigation">
+            <ul class="flex gap-2 justify-center font-poppins text-lg md:text-xl lg:text-2xl" data-cy="navbar-list">
+                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300" data-cy="navbar-item-home">
+                    <a href="#" title="Go to Home" aria-label="Home" data-cy="navbar-link-home">Home</a>
                 </li>
-                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300">
-                    <a href="#" title="Link About">About</a>
+                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300" data-cy="navbar-item-about">
+                    <a href="#" title="Learn About Us" aria-label="About" data-cy="navbar-link-about">About</a>
                 </li>
-                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300">
-                    <a href="#" title="Link Resources">Resources</a>
+                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300" data-cy="navbar-item-resources">
+                    <a href="#" title="View Resources" aria-label="Resources" data-cy="navbar-link-resources">Resources</a>
                 </li>
-                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300">
-                    <a href="#" title="Link Contact">Contact</a>
+                <li class="p-1 text-white hover:text-green-500 transform hover:scale-110 transition duration-300" data-cy="navbar-item-contact">
+                    <a href="#" title="Contact Us" aria-label="Contact" data-cy="navbar-link-contact">Contact</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        
-        <section class="h-auto flex flex-col items-center justify-center text-center md:h-screen md:flex-row md:justify-between md:px-10 lg:px-20 xl:-mt-12" >
+    <main data-cy="main-content">
+        <section class="h-auto flex flex-col items-center justify-center text-center md:h-screen md:flex-row md:justify-between md:px-10 lg:px-20 xl:-mt-12" 
+                 data-cy="main-section">
             <!-- Texto e Botão -->
-            <div class="order-2 md:order-1 md:w-1/2 lg:w-2/5">
-                <h1 class="text-white text-3xl text-start font-poppins font-bold mb-4 ml-3 md:text-left md:text-4xl lg:text-5xl xl:text-6xl">
+            <div class="order-2 md:order-1 md:w-1/2 lg:w-2/5" data-cy="text-container">
+                <h1 class="text-white text-3xl text-start font-poppins font-bold mb-4 ml-3 md:text-left md:text-4xl lg:text-5xl xl:text-6xl" 
+                    data-cy="main-heading" aria-label="Main Heading">
                     Undone What you've done.
                 </h1>
-                <h2 class="text-green-500 hidden text-start font-poppins font-extrabold text-2xl ml-3 mb-2 md:text-left md:text-3xl lg:text-4xl md:block">
+                <h2 class="text-green-500 hidden text-start font-poppins font-extrabold text-2xl ml-3 mb-2 md:text-left md:text-3xl lg:text-4xl md:block" 
+                    data-cy="sub-heading" aria-label="Sub Heading">
                     Undone Your Bulls#*$!
                 </h2>
-                <p class="text-gray-600 text-start font-poppins text-sm mb-4 ml-3  md:text-left md:text-base lg:text-lg">
+                <p class="text-gray-600 text-start font-poppins text-sm mb-4 ml-3 md:text-left md:text-base lg:text-lg" 
+                   data-cy="description-text" aria-label="Description">
                     Made a mistake? No worries! Undone is not just Ctrl + Z—it’s Ctrl + Anything. Instantly revert actions, recover lost text, and undo like never before.
                 </p>
-                <p class="border-2 rounded-lg text-white font-poppins font-bold text-lg px-6 py-2 mt-1.5 hover:bg-green-500 hover:text-black ease-in-out duration-300 text-center  md:text-xl lg:text-2xl">
+                <p class="border-2 rounded-lg text-white font-poppins font-bold text-lg px-6 py-2 mt-1.5 hover:bg-green-500 hover:text-black ease-in-out duration-300 text-center md:text-xl lg:text-2xl" 
+                   data-cy="pricing-button" aria-label="Pricing Button">
                     Pricing
                 </p>
             </div>
 
             <!-- Vídeo -->
-            <div class="order-1 md:order-2 md:w-1/2 lg:w-3/5">
-                <video
-                    src="https://cdn.dribbble.com/userupload/42706967/file/large-b62eda2025f3404594865d0c94b4885b.mp4"
-                    autoplay muted loop playsinline class="w-full mb-4 md:mb-0 md:h-64 lg:h-80 xl:h-96 object-cover">
+            <div class="order-1 md:order-2 md:w-1/2 lg:w-3/5" data-cy="video-container">
+                <video src="https://cdn.dribbble.com/userupload/42706967/file/large-b62eda2025f3404594865d0c94b4885b.mp4" 
+                       autoplay muted loop playsinline class="w-full mb-4 md:mb-0 md:h-64 lg:h-80 xl:h-96 object-cover" 
+                       data-cy="video" aria-label="Promotional Video" title="Promotional Video">
                 </video>
             </div>
         </section>
-
     </main>
 </body>
 
